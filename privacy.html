@@ -1088,7 +1088,7 @@ footer{
 <p>If you are not satisfied with our response, you have the right to lodge a complaint with the <strong>Information Regulator of South Africa</strong>:</p>
 <ul>
   <li>Website: <a href="https://inforeg.org.za" target="_blank" rel="noopener">inforeg.org.za</a></li>
-  <li>Email: <a href="mailto:contact@halaapp.co.za" class="__cf_email__">[email&#160;protected]</a></li>
+  <li>Email: <a href="mailto:contact@halaapp.co.za">[email&#160;protected]</a></li>
 </ul>
 
 <h2 class="section-anchor" id="changes">Changes to This Policy</h2>
@@ -1246,25 +1246,4 @@ const co = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
 
 // Fix R0 stat counter (target 0, just show 'R0')
-const s4 = document.querctorAll('.reveal,.reveal-l,.reveal-r').forEach(el => {
-      el.classList.add('visible');
-    });
-  }, 300);
-});
-
-// ── MAGNETIC BUTTON EFFECT ────────────────────────────────────────────────
-document.querySelectorAll('.btn-green').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    const x=(e.clientX-r.left-r.width/2)*.12;
-    const y=(e.clientY-r.top-r.height/2)*.12;
-    btn.style.transform=`translate(${x}px,${y}px) translateY(-2px)`;
-  });
-  btn.addEventListener('mouseleave',()=>{
-    btn.style.transform='';
-  });
-});
-</script>
-
-</body>
-</html>
+const s4 = document.quer
