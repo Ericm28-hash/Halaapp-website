@@ -40,7 +40,7 @@
  --rll:   20px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
 body{
  background:var(--bg);color:var(--t);
  font-family:var(--body);font-weight:400;
@@ -204,6 +204,9 @@ nav.scrolled{background:rgba(10,10,10,.98)}
 .mobile-menu a:hover{color:var(--g)}
 .mobile-menu .btn{font-size:.95rem;padding:14px 40px;margin-top:12px}
 .mobile-menu-btns{display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px;margin-top:8px}
+@media(max-width:767px){
+ .nav-btns{display:none}
+}
 @media(min-width:768px){
  .nav-links{display:flex}
  .hamburger{display:none}
@@ -800,7 +803,53 @@ footer{
 .footer-bottom-links a{font-size:.8rem;color:var(--t3);transition:color .2s}
 .footer-bottom-links a:hover{color:var(--t2)}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
-@media(max-width:540px){.footer-grid{grid-template-columns:1fr;gap:24px}}
+@media(max-width:540px){.footer-grid{grid-template-columns:repeat(2,1fr);gap:24px 16px}}
+
+/* ─── FLEET / WHAT WE MOVE ───────────────────────────────── */
+.fleet{padding:100px 0;background:var(--bg);border-top:1px solid var(--b)}
+.fleet-header{text-align:center;margin-bottom:56px}
+.fleet-header .sub{margin:0 auto}
+.fleet-grid{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:16px;margin-bottom:32px;
+}
+@media(min-width:640px){.fleet-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.fleet-grid{grid-template-columns:repeat(5,1fr)}}
+.fleet-card{
+ background:var(--s2);border:1px solid var(--b);
+ border-radius:var(--rl);padding:28px 22px;
+ display:flex;flex-direction:column;gap:14px;
+ transition:border-color .25s,transform .25s,box-shadow .25s;
+}
+.fleet-card:hover{
+ border-color:rgba(92,181,88,.4);
+ transform:translateY(-4px);
+ box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.fleet-icon{font-size:2.2rem;line-height:1;margin-bottom:4px}
+.fleet-name{font-size:1rem;font-weight:700;color:var(--t);margin-bottom:4px}
+.fleet-capacity{
+ display:inline-block;
+ font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+ color:var(--g);background:var(--gmid);
+ border:1px solid rgba(92,181,88,.25);
+ border-radius:20px;padding:3px 10px;margin-bottom:8px;
+}
+.fleet-desc{font-size:.83rem;color:var(--t2);line-height:1.68;flex:1}
+.fleet-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.fleet-tag{
+ font-size:.68rem;font-weight:600;letter-spacing:.04em;
+ background:var(--s3);border:1px solid var(--b2);
+ border-radius:20px;padding:2px 9px;color:var(--t3);
+}
+.fleet-cta-strip{
+ background:var(--s);border:1px solid rgba(92,181,88,.22);
+ border-radius:var(--rl);padding:28px 32px;
+ display:flex;flex-wrap:wrap;align-items:center;
+ justify-content:space-between;gap:20px;margin-top:8px;
+}
+.fleet-cta-strip p{font-size:.9rem;color:var(--t2);line-height:1.65;max-width:580px}
 
 /* ─── SCROLL TOP BTN ─────────────────────────────────────── */
 .scroll-top{
@@ -1088,7 +1137,7 @@ footer{
  <div class="container">
   <div class="stats-inner">
    <div class="stat-item">
-    <div class="stat-num" data-count="80" data-suffix="%">0%</div>
+    <div class="stat-num" data-count="80" data-suffix="%">80%</div>
     <div class="stat-label">Your share of every job</div>
    </div>
    <div class="stat-item">
@@ -1202,14 +1251,97 @@ footer{
  </div>
 </section>
 
+<!-- WHAT WE MOVE / FLEET -->
+<section class="fleet" id="fleet" aria-labelledby="fleet-heading">
+ <div class="container">
+  <div class="fleet-header">
+   <div class="eyebrow" style="justify-content:center">Our Fleet</div>
+   <h2 class="h2" id="fleet-heading" style="text-align:center">The right vehicle<br>for every job.</h2>
+   <p class="sub center">From a single appliance to a full warehouse relocation — HALA MOVE matches your job to a verified driver with the right vehicle. Bakkies, H100s, panel vans, and trucks. All inspected. All insured. All on one platform.</p>
+  </div>
+  <div class="fleet-grid">
+
+   <div class="fleet-card reveal d1">
+    <div class="fleet-icon">🛻</div>
+    <div class="fleet-name">Small Bakkie</div>
+    <div class="fleet-capacity">Up to 800 kg</div>
+    <p class="fleet-desc">The everyday workhorse of Durban. Moving a fridge, a lounge suite, or a stack of building materials? A small bakkie gets it done today. No arrangement. No waiting. Post the job and a driver is on the way.</p>
+    <div class="fleet-tags">
+     <span class="fleet-tag">Furniture</span>
+     <span class="fleet-tag">Appliances</span>
+     <span class="fleet-tag">Building materials</span>
+     <span class="fleet-tag">Shop deliveries</span>
+    </div>
+   </div>
+
+   <div class="fleet-card reveal d2">
+    <div class="fleet-icon">🚛</div>
+    <div class="fleet-name">Large Bakkie / 1-Tonne</div>
+    <div class="fleet-capacity">Up to 1 tonne</div>
+    <p class="fleet-desc">When one room becomes three. Bedroom sets, large appliances, bulk retail stock, and small-business relocations that demand more space and muscle. Extended load bay. Still fast. Still same-day.</p>
+    <div class="fleet-tags">
+     <span class="fleet-tag">Home moves</span>
+     <span class="fleet-tag">Office relocations</span>
+     <span class="fleet-tag">Bulk stock</span>
+     <span class="fleet-tag">Large appliances</span>
+    </div>
+   </div>
+
+   <div class="fleet-card reveal d3">
+    <div class="fleet-icon">🚐</div>
+    <div class="fleet-name">H100 / Panel Van</div>
+    <div class="fleet-capacity">Up to 1.2 tonnes · Enclosed</div>
+    <p class="fleet-desc">Weatherproofed. Locked. Built for cargo that cannot get wet or damaged in transit. Electronics, medical supplies, boutique retail, fragile equipment — your goods arrive exactly the way they left. Not approximately. Exactly.</p>
+    <div class="fleet-tags">
+     <span class="fleet-tag">Fragile items</span>
+     <span class="fleet-tag">Electronics</span>
+     <span class="fleet-tag">Medical supplies</span>
+     <span class="fleet-tag">Retail deliveries</span>
+    </div>
+   </div>
+
+   <div class="fleet-card reveal d4">
+    <div class="fleet-icon">🚚</div>
+    <div class="fleet-name">4-Tonne Truck</div>
+    <div class="fleet-capacity">Up to 4 tonnes</div>
+    <p class="fleet-desc">Full house relocations. Warehouse restocks. Construction site deliveries. When the load demands a proper truck, our verified 4-tonne drivers step up. Book a single job or set a standing contract — same driver, same rate, every week.</p>
+    <div class="fleet-tags">
+     <span class="fleet-tag">Full relocations</span>
+     <span class="fleet-tag">Warehouse stock</span>
+     <span class="fleet-tag">Construction</span>
+     <span class="fleet-tag">B2B contracts</span>
+    </div>
+   </div>
+
+   <div class="fleet-card reveal d5">
+    <div class="fleet-icon">🏗️</div>
+    <div class="fleet-name">8-Tonne Truck</div>
+    <div class="fleet-capacity">Up to 8 tonnes</div>
+    <p class="fleet-desc">Industrial volumes. Commercial relocations. Bulk manufacturing deliveries. The 8-tonne is for jobs that other platforms can't handle. Available on contract for businesses that need heavy capacity on a schedule they can rely on.</p>
+    <div class="fleet-tags">
+     <span class="fleet-tag">Industrial loads</span>
+     <span class="fleet-tag">Manufacturing</span>
+     <span class="fleet-tag">Commercial moves</span>
+     <span class="fleet-tag">Heavy contracts</span>
+    </div>
+   </div>
+
+  </div>
+  <div class="fleet-cta-strip reveal">
+   <p><strong style="color:var(--t)">Not sure what size you need?</strong> Post your job with item photos — our AI Smart Quote recommends the right vehicle and shows you a fair price range before a single driver bids.</p>
+   <a href="#download" class="btn btn-green btn-sm">Post a Job →</a>
+  </div>
+ </div>
+</section>
+
 <!-- DRIVER SECTION -->
 <section class="driver" id="drivers" aria-labelledby="driver-heading">
  <div class="container">
   <div class="driver-inner">
    <div class="driver-content">
     <div class="eyebrow reveal">For Drivers</div>
-    <h2 class="h2 reveal d1" id="driver-heading">Your Bakkie.<br>Your Schedule.<br><span style="color:var(--g)">Your 80%.</span></h2>
-    <p class="sub reveal d2">Stop waiting for word-of-mouth jobs. HALA MOVE connects you to a constant stream of verified customers who are ready to pay. You set your price. You choose your jobs. You can get paid on the same day your job is completed.</p>
+    <h2 class="h2 reveal d1" id="driver-heading">Your Vehicle.<br>Your Schedule.<br><span style="color:var(--g)">Your 80%.</span></h2>
+    <p class="sub reveal d2">Bakkie, H100, panel van, or truck — if you own it and it moves cargo, HALA MOVE puts it to work. Stop sitting on word-of-mouth. Go online and let verified jobs find you. You set your price. You choose your jobs. You get paid the same day your job is done.</p>
 
     <div class="reveal d3" style="margin-bottom:28px">
      <div style="background:var(--s3);border:1px solid var(--b);border-radius:var(--rl);overflow:hidden;">
@@ -1409,7 +1541,7 @@ footer{
  <div class="container">
   <div class="testi-header">
    <div class="eyebrow" style="justify-content:center">The HALA MOVE experience</div>
-   <h2 class="h2" id="testi-heading" style="text-align:center">What using HALA<br>actually looks like.</h2>
+   <h2 class="h2" id="testi-heading" style="text-align:center">What using HALA MOVE<br>actually looks like.</h2>
   </div>
   <div class="testi-grid">
    <div class="testi-card reveal visible d1">
@@ -1639,6 +1771,7 @@ function animateNum(el) {
  const suffix = el.dataset.suffix || '';
  const dec   = parseInt(el.dataset.decimal) || 0;
  const dur   = 1600;
+ el.textContent = '0' + suffix; // reset before animating
  const start  = performance.now();
  const run = now => {
   const p  = Math.min((now - start) / dur, 1);
@@ -1646,22 +1779,35 @@ function animateNum(el) {
   const v  = target * ease;
   el.textContent = (dec ? v.toFixed(dec) : Math.floor(v)) + suffix;
   if(p < 1) requestAnimationFrame(run);
-  };
-  requestAnimationFrame(run);
+  else el.textContent = target + suffix; // guarantee final value
+ };
+ requestAnimationFrame(run);
 }
-const co = new IntersectionObserver(entries => {
- entries.forEach(e => {
-  if(e.isIntersecting && e.target.dataset.count !== undefined) {
-   animateNum(e.target);
-   co.unobserve(e.target);
+if('IntersectionObserver' in window) {
+ const co = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+   if(e.isIntersecting && e.target.dataset.count !== undefined) {
+    animateNum(e.target);
+    co.unobserve(e.target);
+   }
+  });
+ }, {threshold: 0, rootMargin: '0px 0px 200px 0px'});
+ document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+} else {
+ // Fallback: set final values immediately
+ document.querySelectorAll('[data-count]').forEach(el => {
+  el.textContent = el.dataset.count + (el.dataset.suffix || '');
+ });
+}
+// Hard failsafe: after 2.5s, any counter still at 0 gets its final value
+setTimeout(() => {
+ document.querySelectorAll('[data-count]').forEach(el => {
+  const suffix = el.dataset.suffix || '';
+  if(el.textContent === '0' + suffix || el.textContent === '0') {
+   el.textContent = el.dataset.count + suffix;
   }
  });
-}, {threshold: 0, rootMargin: '0px 0px 0px 0px'});
-document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
-
-// Fix R0 stat counter (target 0, just show 'R0')
-const s4 = document.querySelector('[data-count="0"]');
-if(s4) { s4.textContent = 'R0'; }
+}, 2500);
 
 // ── STEPS LINE ANIMATION ──────────────────────────────────
 const sl = document.getElementById('steps-line');
