@@ -757,7 +757,7 @@ footer{
  padding:64px 0 0;
 }
 .footer-grid{
- display:grid;grid-template-columns:1fr;
+ display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
  gap:40px;margin-bottom:56px;
 }
 .footer-brand-logo{
@@ -795,8 +795,8 @@ footer{
 .footer-bottom-links{display:flex;gap:20px}
 .footer-bottom-links a{font-size:.8rem;color:var(--t3);transition:color .2s}
 .footer-bottom-links a:hover{color:var(--t2)}
-@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:1024px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:32px}}
 
 /* ─── SCROLL TOP BTN ─────────────────────────────────────── */
 .scroll-top{
@@ -1136,7 +1136,7 @@ footer{
       <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-0.02em;line-height:1;">
        <span style="color:#5CB558;">HALA</span><span style="color:#FFFFFF;"> MOVE</span>
       </span>
-     </div></div>
+     </div>
     <p class="footer-brand-tag">Verified. Tracked. Accountable.<br><br>South Africa's logistics marketplace. Verified drivers. Live GPS tracking. PayFast escrow. Built in Durban. Growing across Africa.</p>
     <div class="social-links" aria-label="Social media links">
      <a href="#" class="social-btn" aria-label="HALA MOVE on X">X</a>
