@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#5CB558" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#5CB558" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#5CB558" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5CB558"/>
+      <stop offset="100%" stop-color="#7DCB79"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="315" r="500" fill="url(#glow)"/>
+
+  <rect x="60" y="60" width="1080" height="510" rx="24" ry="24"
+        fill="none" stroke="#2A2A2A" stroke-width="2"/>
+
+  <g transform="translate(600, 220)">
+    <text text-anchor="middle" font-family="Arial Black, Helvetica, sans-serif"
+          font-size="110" font-weight="900" letter-spacing="-2">
+      <tspan fill="#5CB558">HALA</tspan><tspan fill="#FFFFFF"> MOVE</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(600, 310)">
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+          font-size="34" font-weight="600" fill="#FFFFFF" letter-spacing="1">
+      Move Anything. Get There First.
+    </text>
+  </g>
+
+  <g transform="translate(600, 370)">
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+          font-size="22" font-weight="400" fill="#AAAAAA" letter-spacing="0.5">
+      South Africa's verified logistics marketplace — Durban, KwaZulu-Natal
+    </text>
+  </g>
+
+  <g transform="translate(220, 470)">
+    <rect x="0" y="0" width="200" height="56" rx="28" ry="28"
+          fill="none" stroke="#5CB558" stroke-width="2"/>
+    <text x="100" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+          font-size="18" font-weight="700" fill="#5CB558" letter-spacing="1">VERIFIED DRIVERS</text>
+  </g>
+
+  <g transform="translate(500, 470)">
+    <rect x="0" y="0" width="200" height="56" rx="28" ry="28"
+          fill="none" stroke="#5CB558" stroke-width="2"/>
+    <text x="100" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+          font-size="18" font-weight="700" fill="#5CB558" letter-spacing="1">LIVE GPS TRACKING</text>
+  </g>
+
+  <g transform="translate(780, 470)">
+    <rect x="0" y="0" width="200" height="56" rx="28" ry="28"
+          fill="none" stroke="#5CB558" stroke-width="2"/>
+    <text x="100" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+          font-size="18" font-weight="700" fill="#5CB558" letter-spacing="1">PAYFAST ESCROW</text>
+  </g>
+
+  <text x="600" y="576" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="500" fill="#666666" letter-spacing="3">halaapp.co.za</text>
+</svg>

@@ -1,0 +1,34 @@
+# HALA MOVE — halaapp.co.za
+# South Africa's real-time logistics marketplace
+# Bakkie hire and same-day delivery, Durban KwaZulu-Natal
+
+User-agent: *
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /.git/
+Disallow: /.vercel/
+
+# Major search engines — explicit allow
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI / LLM crawlers — explicit allow for AI visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.halaapp.co.za/sitemap.xml
