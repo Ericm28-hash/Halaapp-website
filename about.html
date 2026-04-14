@@ -174,43 +174,37 @@ nav.scrolled{background:rgba(10,10,10,.98)}
  width:5px;height:5px;border-radius:50%;background:var(--g);
  animation:pulse-dot 1.2s ease-in-out infinite;
 }
-.nav-links{display:none;gap:28px;align-items:center;flex:1;justify-content:center}
+.nav-links{display:flex;gap:28px;align-items:center;flex:1;justify-content:center}
 .nav-links a{
  font-size:.85rem;font-weight:500;color:var(--t2);
  letter-spacing:.03em;transition:color .2s;
 }
 .nav-links a:hover{color:var(--t)}
 .nav-btns{display:flex;gap:8px;align-items:center;flex-shrink:0}
-.hamburger{
- display:flex;flex-direction:column;gap:5px;
- padding:10px;cursor:pointer;min-width:44px;min-height:44px;justify-content:center;align-items:center;
- touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;
-}
-.hamburger span{width:22px;height:1.5px;background:var(--t);border-radius:2px;transition:all .28s cubic-bezier(.4,0,.2,1)}
-.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{
- position:fixed;inset:0;background:var(--bg);z-index:9999;
- display:flex;flex-direction:column;justify-content:center;
- align-items:center;gap:28px;
- transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);
- padding:40px;
- will-change:transform;overscroll-behavior:contain;overflow-y:auto;
-pointer-events:none;
-}
-.mobile-menu.open{transform:translateX(0);pointer-events:auto;}
-.mobile-menu a{
- font-family:var(--disp);font-size:2.6rem;
- letter-spacing:.04em;color:var(--t2);transition:color .2s;
-}
-.mobile-menu a:hover{color:var(--g)}
-.mobile-menu .btn{font-size:.95rem;padding:14px 40px;margin-top:12px}
-.mobile-menu-btns{display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px;margin-top:8px}
 @media(min-width:768px){
  .nav-links{display:flex}
- .hamburger{display:none}
- .mobile-menu{display:none}
+}
+/* Mobile: two-row nav — row 1 = logo + CTA, row 2 = nav links (scrollable) */
+@media(max-width:767px){
+ nav{height:auto}
+ .nav-inner{flex-wrap:wrap;padding:10px 16px;gap:6px;row-gap:4px}
+ .nav-live{display:none}
+ .nav-btns{margin-left:auto;flex:0 0 auto;gap:6px}
+ .nav-btns .btn{padding:9px 14px;font-size:.72rem}
+ .nav-btns .btn-ghost{display:none}
+ .nav-links{
+  display:flex;flex:0 0 100%;order:10;
+  gap:22px;justify-content:flex-start;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  padding:4px 2px 6px;margin:0;
+  scrollbar-width:none;-ms-overflow-style:none;
+ }
+ .nav-links::-webkit-scrollbar{display:none}
+ .nav-links a{
+  font-size:.78rem;font-weight:600;
+  white-space:nowrap;padding:4px 0;color:var(--t2);
+ }
+ .nav-links li{flex-shrink:0;list-style:none}
 }
 
 /* ─── HERO ───────────────────────────────────────────────── */
@@ -916,10 +910,6 @@ footer{
  .wa-float{animation:none}
  #city-canvas{display:none}
 }
-@media(max-width:767px){
-  .nav-live{display:none}
-  .hamburger{display:flex !important}
-}
 </style>
 </head>
 <body>
@@ -957,22 +947,8 @@ footer{
    <a href="#download" class="btn btn-green btn-sm" id="nav-cta">Get Started</a>
   </div>
 
-  <button onclick="halaMenuToggle()" type="button" class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
-   <span></span><span></span><span></span>
-  </button>
  </div>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
- <a href="#customers" class="mobile-link">Customers</a>
- <a href="#drivers" class="mobile-link">Drivers</a>
- <a href="#business" class="mobile-link">Business</a>
- <div class="mobile-menu-btns">
-  <a href="#download" class="btn btn-ghost btn-wide mobile-link">Download App</a>
-  <a href="#download" class="btn btn-green btn-wide mobile-link">Get Started →</a>
- </div>
-</div>
 <div class="page-hero">
  <div class="container">
   <div class="page-hero-eyebrow">About HALA MOVE</div>
@@ -1034,7 +1010,7 @@ footer{
  <h3>Ready to move, or ready to earn?</h3>
  <p>Download the HALA MOVE app and post your first job in minutes. Or register as a driver and start earning on your own schedule.</p>
  <a href="./index.html#download" class="btn btn-green btn-lg">Download HALA MOVE</a>
- <p style="margin-top:14px;margin-bottom:0"><a href="/cdn-cgi/l/email-protection#65060a0b11040611250d0409040415154b060a4b1f04" style="font-size:.85rem;color:var(--t3)">Questions? <span class="__cf_email__" data-cfemail="93f0fcfde7f2f0e7d3fbf2fff2f2e3e3bdf0fcbde9f2">[email&#160;protected]</span></a></p>
+ <p style="margin-top:14px;margin-bottom:0"><a href="mailto:hello@halaapp.co.za" style="font-size:.85rem;color:var(--t3)">Questions? <span>hello@halaapp.co.za</span></a></p>
 </div>
 </div>
   </div>
@@ -1082,8 +1058,8 @@ footer{
     <ul class="footer-links" role="list">
      <li><a href="./about.html">About HALA MOVE</a></li>
      <li><a href="./faq.html">FAQs</a></li>
-     <li><a href="/cdn-cgi/l/email-protection#086b67667c696b7c4860696469697878266b67267269">Contact Us</a></li>
-     <li><a href="/cdn-cgi/l/email-protection#73101c1d07121007331b121f121203035d101c5d0912">Support</a></li>
+     <li><a href="mailto:hello@halaapp.co.za">Contact Us</a></li>
+     <li><a href="mailto:hello@halaapp.co.za">Support</a></li>
     </ul>
    </div>
    <div class="footer-col">
@@ -1104,7 +1080,7 @@ footer{
    <div class="footer-bottom-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
-    <a href="/cdn-cgi/l/email-protection#a2c1cdccd6c3c1d6e2cac3cec3c3d2d28cc1cd8cd8c3">Contact</a>
+    <a href="mailto:hello@halaapp.co.za">Contact</a>
    </div>
   </div>
  </div>
@@ -1115,41 +1091,7 @@ footer{
  <span>Chat with us</span>
 </a>
 <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">&uarr;</button>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-
-// ── HAMBURGER ─────────────────────────────────────────────
-// NUCLEAR FIX: global onclick — button calls halaMenuToggle() directly.
-// No delegation, no listeners, no IIFE. Survives Cloudflare Rocket Loader.
-window._halaOpen = false;
-function halaMenuToggle() {
- var hbg = document.getElementById('hamburger');
- var mm  = document.getElementById('mobileMenu');
- if (!hbg || !mm) return;
- window._halaOpen = !window._halaOpen;
- hbg.classList.toggle('open', window._halaOpen);
- mm.classList.toggle('open', window._halaOpen);
- hbg.setAttribute('aria-expanded', String(window._halaOpen));
- document.body.style.overflow = window._halaOpen ? 'hidden' : '';
-}
-function halaMenuClose() {
- var hbg = document.getElementById('hamburger');
- var mm  = document.getElementById('mobileMenu');
- if (!hbg || !mm) return;
- window._halaOpen = false;
- hbg.classList.remove('open');
- mm.classList.remove('open');
- hbg.setAttribute('aria-expanded', 'false');
- document.body.style.overflow = '';
-}
-document.addEventListener('DOMContentLoaded', function() {
- var mm = document.getElementById('mobileMenu');
- if (!mm) return;
- mm.addEventListener('click', function(ev) {
-  if (ev.target === mm) { halaMenuClose(); return; }
-  if (ev.target && ev.target.classList && ev.target.classList.contains('mobile-link')) { halaMenuClose(); }
- });
-});
-
+<script>
 // ── NAV SCROLL STATE ──────────────────────────────────────
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
