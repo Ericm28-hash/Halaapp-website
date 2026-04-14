@@ -1182,29 +1182,29 @@ footer{
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
 // ── HAMBURGER ─────────────────────────────────────────────
+// FIX: document-level capture delegation survives Cloudflare
+// DOM processing and works on every mobile browser without fail.
 (function() {
- const hbg = document.getElementById('hamburger');
- const mm  = document.getElementById('mobileMenu');
- if (!hbg || !mm) return;
- function closeMenu() {
-  hbg.classList.remove('open');
-  mm.classList.remove('open');
-  hbg.setAttribute('aria-expanded','false');
-  document.body.style.overflow = '';
+ var menuOpen = false;
+ function setMenu(open) {
+  var hbg = document.getElementById('hamburger');
+  var mm  = document.getElementById('mobileMenu');
+  if (!hbg || !mm) return;
+  menuOpen = !!open;
+  hbg.classList.toggle('open', menuOpen);
+  mm.classList.toggle('open', menuOpen);
+  hbg.setAttribute('aria-expanded', String(menuOpen));
+  document.body.style.overflow = menuOpen ? 'hidden' : '';
  }
- function toggleMenu() {
-  var o = hbg.classList.toggle('open');
-  mm.classList.toggle('open');
-  hbg.setAttribute('aria-expanded', o);
-  document.body.style.overflow = o ? 'hidden' : '';
- }
- hbg.addEventListener('click', function() {
-  toggleMenu();
- });
- document.querySelectorAll('.mobile-link,.mobile-menu .btn').forEach(el => {
-  el.addEventListener('click', closeMenu);
- });
- mm.addEventListener('click', (e) => { if (e.target === mm) closeMenu(); });
+ document.addEventListener('click', function(ev) {
+  var t = ev.target;
+  while (t && t !== document.body) {
+   if (t.id === 'hamburger')  { setMenu(!menuOpen); return; }
+   if (t.id === 'mobileMenu' && ev.target === t) { setMenu(false); return; }
+   if (t.classList && t.classList.contains('mobile-link')) { setMenu(false); return; }
+   t = t.parentElement;
+  }
+ }, true);
 }());
 
 // ── NAV SCROLL STATE ──────────────────────────────────────
