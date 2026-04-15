@@ -1112,6 +1112,13 @@ footer{
   transform:none !important;
   transition:none !important;
 }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-l, .reveal-r {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 
 /* Issue 4: Push WhatsApp float above sticky download bar */
 @media(max-width:768px){
@@ -1978,8 +1985,8 @@ if ('IntersectionObserver' in window) {
   });
  }, {threshold: 0, rootMargin: '200px 0px 0px 0px'});
  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => ro.observe(el));
- // Force-visible fix for Gap 3 audit — driver section reveals must always render
- document.querySelectorAll('.driver .reveal, .driver .reveal-l, .driver .reveal-r')
+ // Force-visible fix — all reveal elements visible at DOM ready (site-wide)
+ document.querySelectorAll('.reveal, .reveal-l, .reveal-r')
   .forEach(function(el){ el.classList.add('visible'); });
  // Failsafe: if observer hasn't fired within 1.5s, reveal everything
  setTimeout(() => {
